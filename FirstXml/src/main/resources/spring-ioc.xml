@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <bean class="com.UserDaoMysql" id="userDao"/>
+    <bean class="com.UserServiceImpl" id="userService">
+        <property name="userDao" ref="userDao">
+
+        </property>
+    </bean>
+    <bean class="com.User" id="user">
+    </bean>
+    <bean class="com.User" id="user1" p:name="p命名空间简化基于setter属性注入XML配置">
+    </bean>
+    <bean class="com.User" id="user2" c:name="c命名空间简化基于构造函数的XML">
+    </bean>
+
+    <context:component-scan base-package="com.vidor">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+<!--        <context:include-filter type="" expression=""/>-->
+    </context:component-scan>
+</beans>
