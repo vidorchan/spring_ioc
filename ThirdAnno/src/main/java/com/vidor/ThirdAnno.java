@@ -21,5 +21,7 @@ public class ThirdAnno {
          */
         User singleTonUser = autowireCapableBeanFactory.getBean("user", User.class);
         System.out.println(singleTonUser);
+
+        StaticObjectAutowiredIssue.printMethod();
     }
 }
