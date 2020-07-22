@@ -23,5 +23,11 @@ public class ThirdAnno {
         System.out.println(singleTonUser);
 
         StaticObjectAutowiredIssue.printMethod();
+
+        // 输出bean定义
+        String[] definitionNames = ioc.getBeanDefinitionNames();
+        for (String name: definitionNames) {
+            System.out.println("bean的定义信息：" + name);
+        }
     }
 }
